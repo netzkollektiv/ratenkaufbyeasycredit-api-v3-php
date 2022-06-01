@@ -44,7 +44,7 @@ use \Teambank\RatenkaufByEasyCreditApiV3\ObjectSerializer;
  */
 class TransactionInitRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -203,12 +203,12 @@ class TransactionInitRequest implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['financingTerm'] = $data['financingTerm'] ?? null;
-        $this->container['orderDetails'] = $data['orderDetails'] ?? null;
-        $this->container['shopsystem'] = $data['shopsystem'] ?? null;
-        $this->container['customer'] = $data['customer'] ?? null;
-        $this->container['customerRelationship'] = $data['customerRelationship'] ?? null;
-        $this->container['redirectLinks'] = $data['redirectLinks'] ?? null;
+        $this->container['financingTerm'] = isset($data['financingTerm']) ? $data['financingTerm'] : null;
+        $this->container['orderDetails'] = isset($data['orderDetails']) ? $data['orderDetails'] : null;
+        $this->container['shopsystem'] = isset($data['shopsystem']) ? $data['shopsystem'] : null;
+        $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
+        $this->container['customerRelationship'] = isset($data['customerRelationship']) ? $data['customerRelationship'] : null;
+        $this->container['redirectLinks'] = isset($data['redirectLinks']) ? $data['redirectLinks'] : null;
     }
 
     /**
@@ -408,7 +408,7 @@ class TransactionInitRequest implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

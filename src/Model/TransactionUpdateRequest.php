@@ -44,7 +44,7 @@ use \Teambank\RatenkaufByEasyCreditApiV3\ObjectSerializer;
  */
 class TransactionUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -188,9 +188,9 @@ class TransactionUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(array $data = null)
     {
-        $this->container['orderValue'] = $data['orderValue'] ?? null;
-        $this->container['numberOfProductsInShoppingCart'] = $data['numberOfProductsInShoppingCart'] ?? null;
-        $this->container['shoppingCartInformation'] = $data['shoppingCartInformation'] ?? null;
+        $this->container['orderValue'] = isset($data['orderValue']) ? $data['orderValue'] : null;
+        $this->container['numberOfProductsInShoppingCart'] = isset($data['numberOfProductsInShoppingCart']) ? $data['numberOfProductsInShoppingCart'] : null;
+        $this->container['shoppingCartInformation'] = isset($data['shoppingCartInformation']) ? $data['shoppingCartInformation'] : null;
     }
 
     /**
@@ -337,7 +337,7 @@ class TransactionUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

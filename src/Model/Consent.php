@@ -172,9 +172,9 @@ class Consent implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['sepaMandate'] = $data['sepaMandate'] ?? null;
-        $this->container['advertisement'] = $data['advertisement'] ?? null;
-        $this->container['dataProcessing'] = $data['dataProcessing'] ?? null;
+        $this->container['sepaMandate'] = isset($data['sepaMandate']) ? $data['sepaMandate'] : null;
+        $this->container['advertisement'] = isset($data['advertisement']) ? $data['advertisement'] : null;
+        $this->container['dataProcessing'] = isset($data['dataProcessing']) ? $data['dataProcessing'] : null;
     }
 
     /**
@@ -293,7 +293,7 @@ class Consent implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

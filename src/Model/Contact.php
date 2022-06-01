@@ -177,10 +177,10 @@ class Contact implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['email'] = $data['email'] ?? null;
-        $this->container['mobilePhoneNumber'] = $data['mobilePhoneNumber'] ?? null;
-        $this->container['phoneNumber'] = $data['phoneNumber'] ?? null;
-        $this->container['phoneNumbersConfirmed'] = $data['phoneNumbersConfirmed'] ?? null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['mobilePhoneNumber'] = isset($data['mobilePhoneNumber']) ? $data['mobilePhoneNumber'] : null;
+        $this->container['phoneNumber'] = isset($data['phoneNumber']) ? $data['phoneNumber'] : null;
+        $this->container['phoneNumbersConfirmed'] = isset($data['phoneNumbersConfirmed']) ? $data['phoneNumbersConfirmed'] : null;
     }
 
     /**
@@ -334,7 +334,7 @@ class Contact implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

@@ -167,8 +167,8 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['messageDE'] = $data['messageDE'] ?? null;
-        $this->container['messageEN'] = $data['messageEN'] ?? null;
+        $this->container['messageDE'] = isset($data['messageDE']) ? $data['messageDE'] : null;
+        $this->container['messageEN'] = isset($data['messageEN']) ? $data['messageEN'] : null;
     }
 
     /**
@@ -263,7 +263,7 @@ class Message implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

@@ -197,14 +197,14 @@ class TransactionUpdate implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['orderValue'] = $data['orderValue'] ?? null;
-        $this->container['numberOfProductsInShoppingCart'] = $data['numberOfProductsInShoppingCart'] ?? null;
-        $this->container['orderId'] = $data['orderId'] ?? null;
-        $this->container['shoppingCartInformation'] = $data['shoppingCartInformation'] ?? null;
-        $this->container['financingTerm'] = $data['financingTerm'] ?? null;
-        $this->container['contact'] = $data['contact'] ?? null;
-        $this->container['bank'] = $data['bank'] ?? null;
-        $this->container['customerRelationship'] = $data['customerRelationship'] ?? null;
+        $this->container['orderValue'] = isset($data['orderValue']) ? $data['orderValue'] : null;
+        $this->container['numberOfProductsInShoppingCart'] = isset($data['numberOfProductsInShoppingCart']) ? $data['numberOfProductsInShoppingCart'] : null;
+        $this->container['orderId'] = isset($data['orderId']) ? $data['orderId'] : null;
+        $this->container['shoppingCartInformation'] = isset($data['shoppingCartInformation']) ? $data['shoppingCartInformation'] : null;
+        $this->container['financingTerm'] = isset($data['financingTerm']) ? $data['financingTerm'] : null;
+        $this->container['contact'] = isset($data['contact']) ? $data['contact'] : null;
+        $this->container['bank'] = isset($data['bank']) ? $data['bank'] : null;
+        $this->container['customerRelationship'] = isset($data['customerRelationship']) ? $data['customerRelationship'] : null;
     }
 
     /**
@@ -483,7 +483,7 @@ class TransactionUpdate implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

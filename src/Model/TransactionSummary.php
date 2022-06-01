@@ -217,15 +217,15 @@ class TransactionSummary implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['orderValue'] = $data['orderValue'] ?? null;
-        $this->container['interest'] = $data['interest'] ?? null;
-        $this->container['totalValue'] = $data['totalValue'] ?? null;
-        $this->container['decisionOutcome'] = $data['decisionOutcome'] ?? null;
-        $this->container['numberOfInstallments'] = $data['numberOfInstallments'] ?? null;
-        $this->container['installment'] = $data['installment'] ?? null;
-        $this->container['lastInstallment'] = $data['lastInstallment'] ?? null;
-        $this->container['mtan'] = $data['mtan'] ?? null;
-        $this->container['bankAccountCheck'] = $data['bankAccountCheck'] ?? null;
+        $this->container['orderValue'] = isset($data['orderValue']) ? $data['orderValue'] : null;
+        $this->container['interest'] = isset($data['interest']) ? $data['interest'] : null;
+        $this->container['totalValue'] = isset($data['totalValue']) ? $data['totalValue'] : null;
+        $this->container['decisionOutcome'] = isset($data['decisionOutcome']) ? $data['decisionOutcome'] : null;
+        $this->container['numberOfInstallments'] = isset($data['numberOfInstallments']) ? $data['numberOfInstallments'] : null;
+        $this->container['installment'] = isset($data['installment']) ? $data['installment'] : null;
+        $this->container['lastInstallment'] = isset($data['lastInstallment']) ? $data['lastInstallment'] : null;
+        $this->container['mtan'] = isset($data['mtan']) ? $data['mtan'] : null;
+        $this->container['bankAccountCheck'] = isset($data['bankAccountCheck']) ? $data['bankAccountCheck'] : null;
     }
 
     /**
@@ -507,7 +507,7 @@ class TransactionSummary implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

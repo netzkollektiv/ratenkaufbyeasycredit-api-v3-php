@@ -187,12 +187,12 @@ class WebshopResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['maxFinancingAmount'] = $data['maxFinancingAmount'] ?? null;
-        $this->container['minFinancingAmount'] = $data['minFinancingAmount'] ?? null;
-        $this->container['interestRate'] = $data['interestRate'] ?? null;
-        $this->container['availability'] = $data['availability'] ?? null;
-        $this->container['testMode'] = $data['testMode'] ?? null;
-        $this->container['privacyApprovalForm'] = $data['privacyApprovalForm'] ?? null;
+        $this->container['maxFinancingAmount'] = isset($data['maxFinancingAmount']) ? $data['maxFinancingAmount'] : null;
+        $this->container['minFinancingAmount'] = isset($data['minFinancingAmount']) ? $data['minFinancingAmount'] : null;
+        $this->container['interestRate'] = isset($data['interestRate']) ? $data['interestRate'] : null;
+        $this->container['availability'] = isset($data['availability']) ? $data['availability'] : null;
+        $this->container['testMode'] = isset($data['testMode']) ? $data['testMode'] : null;
+        $this->container['privacyApprovalForm'] = isset($data['privacyApprovalForm']) ? $data['privacyApprovalForm'] : null;
     }
 
     /**
@@ -383,7 +383,7 @@ class WebshopResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

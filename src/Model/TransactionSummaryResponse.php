@@ -44,7 +44,7 @@ use \Teambank\RatenkaufByEasyCreditApiV3\ObjectSerializer;
  */
 class TransactionSummaryResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -223,13 +223,13 @@ class TransactionSummaryResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(array $data = null)
     {
-        $this->container['orderValue'] = $data['orderValue'] ?? null;
-        $this->container['interest'] = $data['interest'] ?? null;
-        $this->container['totalValue'] = $data['totalValue'] ?? null;
-        $this->container['decisionOutcome'] = $data['decisionOutcome'] ?? null;
-        $this->container['numberOfInstallments'] = $data['numberOfInstallments'] ?? null;
-        $this->container['installment'] = $data['installment'] ?? null;
-        $this->container['lastInstallment'] = $data['lastInstallment'] ?? null;
+        $this->container['orderValue'] = isset($data['orderValue']) ? $data['orderValue'] : null;
+        $this->container['interest'] = isset($data['interest']) ? $data['interest'] : null;
+        $this->container['totalValue'] = isset($data['totalValue']) ? $data['totalValue'] : null;
+        $this->container['decisionOutcome'] = isset($data['decisionOutcome']) ? $data['decisionOutcome'] : null;
+        $this->container['numberOfInstallments'] = isset($data['numberOfInstallments']) ? $data['numberOfInstallments'] : null;
+        $this->container['installment'] = isset($data['installment']) ? $data['installment'] : null;
+        $this->container['lastInstallment'] = isset($data['lastInstallment']) ? $data['lastInstallment'] : null;
     }
 
     /**
@@ -463,7 +463,7 @@ class TransactionSummaryResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**
